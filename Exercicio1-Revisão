@@ -1,0 +1,34 @@
+package revisão;
+
+import java.util.Scanner;
+
+public class Revisão {
+
+    public static void main(String[] args) {
+        
+        //Questão 1 - Você fica tão feliz no natal que tem vontade de gritar para todo mundo: "Feliz
+       //natal!!". Pra colocar toda essa felicidade para fora, você montou um programa que, dado um
+       //índice I de felicidade, seu grito de natal é mais animado. A entrada é composta por um
+       //inteiro I que representa o índice de felicidade. A saída é composta pela frase "Feliz natal!", sendo
+       //repetidas I vezes a última letra a da frase.
+       
+       int indice = 0;
+       
+       Scanner teclado = new Scanner(System.in);
+       
+        System.out.println("Digite o indice de felicidade: ");
+        indice = teclado.nextInt();
+        
+        System.out.print("Feliz Nat");
+        
+        for(int i = 0; i<indice; i++){
+            
+            System.out.print("a");
+            
+        }System.out.print("l!!");
+        
+        
+    }
+       
+}   
+    

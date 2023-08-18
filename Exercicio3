@@ -1,0 +1,28 @@
+package javaapplication4;
+
+import java.util.Scanner;
+
+public class JavaApplication4 {
+
+    public static void main(String[] args) {
+
+        //A entrada é composta por vários casos de teste. Cada linha contém o mês e o dia do ano de 2016(ano bissexto). 
+        //A entrada termina com fim de arquivo. Se for Natal, imprima "E natal!"; 
+        //se faltar somente um dia, imprima "E véspera de natal!"; se já passou, imprima "Ja passou!". 
+        //Caso contrário, imprima "Faltam X dias para o natal!", sendo X o número de dias que faltam para o Natal.
+        int dia, mes, soma;
+
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.println("Digite o mes e o dia: ");
+
+        mes = teclado.nextInt();
+        dia = teclado.nextInt();
+
+        if (mes == 12 && dia == 24) {
+            System.out.println(" E vespera de natal!");
+        } else if (mes == 12 && dia == 25) {
+            System.out.println("E Natal!");
+        } 
+    }
+}

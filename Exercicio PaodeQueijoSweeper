@@ -1,0 +1,66 @@
+package javaapplication2;
+
+import java.util.Scanner;
+
+public class JavaApplication2 {
+
+    public static void main(String[] args) {
+
+//Nesta questão você deverá jogar um jogo chamado" PãodeQueijoSweeper". Para este jogo, 
+//o tabuleiro consiste em uma matriz de N linhas e M colunas. Cada célula da matriz
+//contém um pão de queijo ou o número de pães de queijo que existem nas células adjacentes a ela. 
+//Uma célula é adjacente a outra se estiver imediatamente à esquerda, à direita, acima ou abaixo da célula. 
+//Note que, se não contiver um pão de queijo, uma célula deve obrigatoriamenteconter um número entre 0 e 4, inclusive. 
+//Portanto, o objetivo deste jogo é, dadas as posições dos pães de queijo, determinar o tabuleiro do jogo!
+//A primeira linha de cada entrada contém os inteiros N e M. As próximas N linhas
+//contém M inteiros cada, separados por espaços, descrevendo os pães de queijo no tabuleiro. 
+//O j-ésimo inteiro da i-ésima linha é 1 se existe um pão de queijo na linha i e coluna j do tabuleiro, 
+//ou 0 caso contrário. Na saída deve ser impresso N linhas com M inteiros cada, não separados por espaços, 
+//descrevendo a configuração do tabuleiro. Se uma posição contém um pão de queijo, imprima 9 para ela; 
+//caso contrário, imprima o número cuja posição deve conter
+        int n = 0;
+        int m = 0;
+        int entrada[][];
+        int saida[][];
+
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.println("Digite o tamanho da matriz (NxM): ");
+
+        n = teclado.nextInt();
+        m = teclado.nextInt();
+        entrada = new int[n][m];
+        saida = new int[n][m];
+        int soma = 0;
+        
+        System.out.println("Digite as entradas: ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                entrada[i][j] = teclado.nextInt();
+
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (entrada[i][j] == 1) {
+                    saida[i][j] = 9;
+                } else {
+                    if (((j - 1) >= 0) && ((j + 1) < n)) {
+                        soma += entrada[i][j-1];
+                    } if ((j+1)<n){
+                        soma += entrada[i][j+1];
+                    } if((i-1)>=0){
+                        soma += entrada[i-1][j];
+                    } if ((i+1)<m){
+                        soma += entrada[i+1][j];
+                    }
+                    saida[i][j] = soma;
+                    soma = 0;
+
+                }
+
+            }
+        }System.out.print((saida)+" ");
+    }
+
+}

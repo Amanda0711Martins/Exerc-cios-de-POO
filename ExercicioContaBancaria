@@ -1,4 +1,7 @@
 package projconta;
+
+import java.util.Scanner;
+
 public class Conta {
 //atributos
 
@@ -6,21 +9,57 @@ public class Conta {
     String titular;
     double saldo;
 
-    //metodos    
-    
+    //metodos   
+    void consultarSaldo() {
+
+        System.out.println("O saldo é: " + this.saldo);
+
+    }
+
+    void saque(double valorSaque) {
+
+        if (this.saldo < valorSaque) {
+            System.out.println("Não foi possível realizar a transação, saldo insuficiente.");
+        } else {
+            this.saldo = this.saldo - valorSaque;
+            System.out.println("Transação realizada com sucesso.");
+
+        }
+    }
+
+    void depositar(double valorDeposito) {
+
+        this.saldo += valorDeposito;
+
+    }
 }
 
-class Principal{
-    
+class Principal {
+
     public static void main(String[] args) {
-        
+
         Conta c1;
         c1 = new Conta();
-        
+
         c1.titular = "Maria";
         c1.numero = 1234;;
         c1.saldo = 1000.0;
-        
-        System.out.println("A conta "+(c1.numero)+ " pertence ao(a) " + (c1.titular)+ " e tem R$ "+ (c1.saldo)+" de saldo.");
+
+        System.out.println("A conta " + (c1.numero) + " pertence ao(a) " + (c1.titular) + " e tem R$ " + (c1.saldo) + " de saldo.");
+
+        c1.consultarSaldo();
+
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Digite o valor que deseja sacar: ");
+        double s = teclado.nextDouble();
+
+        c1.saque(s);
+        c1.consultarSaldo();
+
+        System.out.println("Digite o valor que deseja depositar: ");
+        double d = teclado.nextDouble();
+
+        c1.depositar(d);
+
     }
 }

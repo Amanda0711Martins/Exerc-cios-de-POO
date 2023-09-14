@@ -1,0 +1,13 @@
+
+package projconta;
+
+class Cliente {
+    
+    String nome;
+    String cpf;
+    String end;
+    String fone;
+    
+    
+    
+}
